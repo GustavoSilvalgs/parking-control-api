@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/parking-control-db
+    username: postgres
+    password: 1234567
+  jpa:
+    hibernate:
+      ddl-auto: update
