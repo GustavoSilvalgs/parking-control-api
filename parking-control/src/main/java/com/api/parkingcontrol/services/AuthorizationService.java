@@ -1,0 +1,20 @@
+package com.api.parkingcontrol.services;
+
+import com.api.parkingcontrol.repositories.UserRepository;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
+public class AuthorizationService implements UserDetailsService {
+
+    final UserRepository repository;
+
+    public AuthorizationService(UserRepository repository) {
+        this.repository = repository;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return repository.findByLogin(username);
+    }
+}
