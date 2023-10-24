@@ -5,6 +5,8 @@ import com.api.parkingcontrol.repositories.ParkingSpotRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class ParkingSpotService {
 
@@ -29,5 +31,9 @@ public class ParkingSpotService {
 
     public boolean existsByApartmentAndBlock(String apartment, String block) {
         return repository.existsByApartmentAndBlock(apartment, block);
+    }
+
+    public List<ParkingSpotModel> findAll() {
+        return repository.findAll();
     }
 }
